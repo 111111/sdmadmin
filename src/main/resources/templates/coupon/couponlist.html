@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SDM管理后台</title>
+
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{/assets/css/bootstrap.css}" href="../assets/css/bootstrap.css" rel="stylesheet">
+    <!--external css-->
+    <link th:href="@{/assets/font-awesome/css/font-awesome.css}" href="../assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/css/zabuto_calendar.css}" href="../assets/css/zabuto_calendar.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/js/gritter/css/jquery.gritter.css}" href="../assets/js/gritter/css/jquery.gritter.css" />
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/lineicons/style.css}" href="../assets/lineicons/style.css">
+    
+    <!-- Custom styles for this template -->
+    <link th:href="@{/assets/css/style.css}" href="../assets/css/style.css" rel="stylesheet">
+    <link th:href="@{/assets/css/style-responsive.css}" href="../assets/css/style-responsive.css" rel="stylesheet">
+
+    <script th:src="@{/assets/js/chart-master/Chart.js}" src="../assets/js/chart-master/Chart.js"></script>
+    
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+  <section id="container" >
+      <!-- **********************************************************************************************************************************************************
+      TOP BAR CONTENT & NOTIFICATIONS
+      *********************************************************************************************************************************************************** -->
+      <!--header start-->
+      <header th:replace="~{home/top :: top}"></header>
+      <!--header end-->
+      
+      <!-- **********************************************************************************************************************************************************
+      MAIN SIDEBAR MENU
+      *********************************************************************************************************************************************************** -->
+      <!--sidebar start-->
+      <aside th:replace="home/menu :: sidebar('fun','couponlist')" ></aside>
+
+      <!-- **********************************************************************************************************************************************************
+      MAIN CONTENT
+      *********************************************************************************************************************************************************** -->
+      <!--main content start-->
+      <section id="main-content">
+          <section class="wrapper">
+
+			  <div class="row">
+
+                  <div class="col-md-12 mt">
+                      <div class="content-panel">
+                          <table class="table table-hover">
+                              <h4><i class="fa fa-angle-right"></i>优惠券管理</h4>
+                              <div>
+                                  <form class="form-inline" id="searchForm" name="searchForm" onsubmit="return search();" th:action="@{/coupon/couponlist}" method="post">
+                                      <div class="form-group">
+                                          <label class="col-sm-1 control-label">名称：</label>
+                                          <div class="col-sm-2">
+                                              <input type='text' class="form-control" th:value="${searchName}" id='searchName' name="searchName"  />
+                                          </div>
+                                          <div class='col-sm-1'>
+
+                                          </div>
+                                          <input type='hidden'  th:value="${pi}" id='pi' name="pi"  />
+                                          <button type="submit" class="btn btn-theme">查  询</button>
+                                      </div>
+
+                                  </form>
+                              </div>
+                              <hr/>
+
+                              <thead>
+                              <tr >
+                                  <th>优惠券ID</th>
+                                  <th>商品名称</th>
+                                  <th>优惠券名称</th>
+                                  <th>有效日期</th>
+                                  <th>链接</th>
+                              </tr>
+                              </thead>
+                              <tbody>
+                              <tr th:each="coupon, couponstat : ${pageinfo.list}">
+                                  <td th:text="${coupon.couponid}">1</td>
+                                  <td th:text="${coupon.tbid}">1</td>
+                                  <td th:text="${coupon.couponname}">1</td>
+                                  <td>
+                                      <th:block th:text="${#dates.format(coupon.couponsstarttime, 'yyyy-MM-dd')}"></th:block>至
+                                      <th:block th:text="${#dates.format(coupon.couponsendtime, 'yyyy-MM-dd')}"></th:block>
+                                  </td>
+
+                                  <td>
+                                      <a th:href="${coupon.couponsextensionurl}" target="_blank">推广链接</a>|
+                                      <a th:href="${coupon.couponsurl}" target="_blank">详情链接</a>
+                                  </td>
+
+
+                              </tr>
+
+                              </tbody>
+
+                          </table>
+
+                      </div><! --/content-panel -->
+                  </div><!-- /col-md-12 -->
+                  <div >
+                      <ul th:replace="~{coupon/pagebar :: pagebar}"></ul>
+                  </div>
+			  </div><!-- row -->
+
+          </section>
+      </section>
+
+      <!--main content end-->
+      <!--footer start-->
+      <footer th:replace="~{home/footer :: footer}"></footer>
+      <!--footer end-->
+  </section>
+
+    <!-- js placed at the end of the document so the pages load faster -->
+    <script th:src="@{/assets/js/jquery.js}" src="../assets/js/jquery.js"></script>
+    <script th:src="@{/assets/js/jquery-1.8.3.min.js}" src="../assets/js/jquery-1.8.3.min.js"></script>
+    <script th:src="@{/assets/js/bootstrap.min.js}" src="../assets/js/bootstrap.min.js"></script>
+    <script class="include" type="text/javascript" th:src="@{/assets/js/jquery.dcjqaccordion.2.7.js}" src="../assets/js/jquery.dcjqaccordion.2.7.js"></script>
+    <script th:src="@{/assets/js/jquery.scrollTo.min.js}" src="../assets/js/jquery.scrollTo.min.js"></script>
+    <script th:src="@{/assets/js/jquery.nicescroll.js}" src="../assets/js/jquery.nicescroll.js" type="text/javascript"></script>
+    <script th:src="@{/assets/js/jquery.sparkline.js}" src="../assets/js/jquery.sparkline.js"></script>
+
+
+    <!--common script for all pages-->
+    <script th:src="@{/assets/js/common-scripts.js}" src="../assets/js/common-scripts.js"></script>
+    
+    <script type="text/javascript" th:src="@{/assets/js/gritter/js/jquery.gritter.js}" src="../assets/js/gritter/js/jquery.gritter.js"></script>
+    <script type="text/javascript" th:src="@{/assets/js/gritter-conf.js}" src="../assets/js/gritter-conf.js"></script>
+
+    <!--script for this page-->
+    <script th:src="@{/assets/js/sparkline-chart.js}" src="../assets/js/sparkline-chart.js"></script>
+	<script th:src="@{/assets/js/zabuto_calendar.js}" src="../assets/js/zabuto_calendar.js"></script>
+
+  <script th:src="@{/js/moment-with-locales.min.js}" src="../js/moment-with-locales.min.js"></script>
+
+  <link th:href="@{/css/bootstrap-datetimepicker.min.css}" href="../css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+  <script th:src="@{/js/bootstrap-datetimepicker.min.js}" src="../js/bootstrap-datetimepicker.min.js"></script>
+
+  <script type="text/javascript">
+
+      function search(){
+          $("#pi").val(1);
+          var searchName = $("#searchName").val();
+          if(searchName != ''){
+              return true;
+          }
+          return false;
+      }
+
+        function toPage(pi) {
+            $("#pi").val(pi);
+            $("#searchForm").submit();
+        }
+	</script>
+
+  </body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>头部</title>
+</head>
+<body>
+<header class="header black-bg" th:fragment="top">
+    <div class="sidebar-toggle-box">
+        <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
+    </div>
+    <!--logo start-->
+    <a href="#" class="logo"><b>SDM管理后台</b></a>
+    <!--logo end-->
+    <div class="top-menu">
+        <ul class="nav pull-right top-menu">
+            <li><a class="logout" th:href="@{/login/loginout}" href="/login">退出</a></li>
+        </ul>
+    </div>
+</header>
+</body>
+</html>

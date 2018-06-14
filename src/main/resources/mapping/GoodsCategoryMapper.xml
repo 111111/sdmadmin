@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sdmadmin.dao.GoodsCategoryMapper" >
+  <resultMap id="BaseResultMap" type="com.sdmadmin.entity.GoodsCategory" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="goodsId" property="goodsid" jdbcType="INTEGER" />
+    <result column="categoryId" property="categoryid" jdbcType="INTEGER" />
+    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, goodsId, categoryId, createTime
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_goods_category
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+
+  <select id="selectByParameter" resultMap="BaseResultMap" parameterType="com.sdmadmin.entity.GoodsCategory" >
+    select
+    <include refid="Base_Column_List" />
+    from t_goods_category
+    where goodsId = #{goodsid,jdbcType=INTEGER}
+     and categoryId = #{categoryid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_goods_category
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.sdmadmin.entity.GoodsCategory" useGeneratedKeys="true" keyProperty="id">
+    insert into t_goods_category (goodsId, categoryId,
+      createTime)
+    values (#{goodsid,jdbcType=INTEGER}, #{categoryid,jdbcType=INTEGER},
+      #{createtime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sdmadmin.entity.GoodsCategory" useGeneratedKeys="true" keyProperty="id">
+    insert into t_goods_category
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+
+      <if test="goodsid != null" >
+        goodsId,
+      </if>
+      <if test="categoryid != null" >
+        categoryId,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+
+      <if test="goodsid != null" >
+        #{goodsid,jdbcType=INTEGER},
+      </if>
+      <if test="categoryid != null" >
+        #{categoryid,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sdmadmin.entity.GoodsCategory" >
+    update t_goods_category
+    <set >
+      <if test="goodsid != null" >
+        goodsId = #{goodsid,jdbcType=INTEGER},
+      </if>
+      <if test="categoryid != null" >
+        categoryId = #{categoryid,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null" >
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sdmadmin.entity.GoodsCategory" >
+    update t_goods_category
+    set goodsId = #{goodsid,jdbcType=INTEGER},
+      categoryId = #{categoryid,jdbcType=INTEGER},
+      createTime = #{createtime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

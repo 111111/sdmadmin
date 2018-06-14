@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>菜单</title>
+</head>
+<body>
+<sidebar id="sidebar" th:fragment="sidebar(menu1, menu2)"  class="nav-collapse ">
+    <!-- sidebar menu start-->
+    <ul class="sidebar-menu" id="nav-accordion">
+
+        <p class="centered"><a href="profile.html"><img th:src="@{/assets/img/ui-sam.jpg}" src="../assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
+        <h5 class="centered">admin</h5>
+
+        <li class="mt" id="menu_index">
+            <a th:class="${menu1=='index'} ? 'active' : ''" th:href="@{/index}" href="/index">
+                <i class="fa fa-dashboard"></i>
+                <span>首页</span>
+            </a>
+        </li>
+
+        <li class="sub-menu" >
+            <a th:class="${menu1=='fun'} ? 'active' : ''" id="submenu1" href="javascript:;" >
+                <i class="fa fa-desktop"></i>
+                <span>功能管理</span>
+            </a>
+            <ul class="sub">
+                <li th:class="${menu2=='goodsimport'} ? 'active' : ''" id="goodsimport"><a  th:href="@{/goods/importpage}" href="/goods/importpage">导入管理</a></li>
+                <li th:class="${menu2=='goodslist'} ? 'active' : ''" id="goodslist"><a  th:href="@{/goods/goodslist}" href="/goods/goodslist">商品列表</a></li>
+                <li th:class="${menu2=='categorylist'} ? 'active' : ''" id="categorylist"><a  th:href="@{/category/categorylist}" href="/category/categorylist">分类管理</a></li>
+                <li th:class="${menu2=='couponlist'} ? 'active' : ''" id="couponlist"><a  th:href="@{/coupon/couponlist}" href="/coupon/couponlist">优惠券</a></li>
+            </ul>
+        </li>
+
+
+    </ul>
+    <!-- sidebar menu end-->
+</sidebar>
+</body>
+</html>

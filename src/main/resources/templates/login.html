@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keyword" content="SDMADMIN">
+
+    <title>SDM管理后台</title>
+
+    <!-- Bootstrap core CSS -->
+	  <link th:href="@{/assets/css/bootstrap.css}" href="../assets/css/bootstrap.css" rel="stylesheet">
+    <!--external css-->
+	  <link th:href="@{/assets/font-awesome/css/font-awesome.css}" href="../assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+        
+    <!-- Custom styles for this template -->
+	  <link th:href="@{/assets/css/style.css}" href="../assets/css/style.css" rel="stylesheet">
+	  <link th:href="@{/assets/css/style-responsive.css}" href="../assets/css/style-responsive.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+      <!-- **********************************************************************************************************************************************************
+      MAIN CONTENT
+      *********************************************************************************************************************************************************** -->
+
+	  <div id="login-page">
+	  	<div class="container">
+	  	
+		      <form class="form-login" onsubmit="return dologin();" th:action="@{/login/dologin}" action="/login/dologin" method="post">
+		        <h2 class="form-login-heading">登&nbsp;&nbsp;&nbsp;&nbsp;录</h2>
+		        <div class="login-wrap">
+		            <input type="text" id="adminname" name="adminname" th:value="${adminname}" class="form-control" placeholder="用户名" autofocus>
+		            <br>
+		            <input type="password" id="adminPassword" name="adminPassword" th:value="${adminPassword}" class="form-control" placeholder="密码">
+					<div id="message" style="color: red" th:text="${message}"></div>
+		            <label class="checkbox">
+		                <span class="pull-right">
+		                    <a  href="login.html">忘记密码?</a>
+		
+		                </span>
+		            </label>
+		            <button class="btn btn-theme btn-block" type="submit"><i class="fa fa-lock"></i>&nbsp;&nbsp;登&nbsp;&nbsp;录</button>
+		            <hr>
+		            <div class="registration">
+		                没有帐号?<br/>
+		                <a class="" href="#">
+		                    注册新帐号
+		                </a>
+		            </div>
+		
+		        </div>
+
+		      </form>	  	
+	  	
+	  	</div>
+	  </div>
+
+    <!-- js placed at the end of the document so the pages load faster -->
+	  <script th:src="@{/assets/js/jquery.js}" src="../assets/js/jquery.js"></script>
+	  <script th:src="@{/assets/js/bootstrap.min.js}" src="../assets/js/bootstrap.min.js"></script>
+
+    <!--BACKSTRETCH-->
+    <!-- You can use an image of whatever size. This script will stretch to fit in any screen size.-->
+	  <script th:src="@{/assets/js/jquery.backstretch.min.js}" src="../assets/js/jquery.backstretch.min.js"></script>
+
+
+<script type="text/javascript">
+    function dologin() {
+		var adminname = $("#adminname").val();
+        var adminPassword = $("#adminPassword").val();
+
+        if(adminname == ''){
+            $("#message").html("请输入用户名");
+            return false;
+		}
+
+        if(adminPassword == ''){
+            $("#message").html("请输入密码");
+            return false;
+        }
+        return true;
+    }
+</script>
+  </body>
+</html>
