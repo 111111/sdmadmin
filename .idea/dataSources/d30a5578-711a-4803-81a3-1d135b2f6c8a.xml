@@ -1110,268 +1110,271 @@
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="267" parent="234" name="PRIMARY">
+    <index id="267" parent="234" name="t_coupon_goodsid_index">
+      <ColNames>goodsid</ColNames>
+    </index>
+    <key id="268" parent="234" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="268" parent="235" name="id">
+    <column id="269" parent="235" name="id">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="269" parent="235" name="goodId">
+    <column id="270" parent="235" name="goodId">
       <Position>2</Position>
       <Comment>商品id</Comment>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="270" parent="235" name="goodName">
+    <column id="271" parent="235" name="goodName">
       <Position>3</Position>
       <Comment>商品名称</Comment>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="271" parent="235" name="mainPicUrl">
+    <column id="272" parent="235" name="mainPicUrl">
       <Position>4</Position>
       <Comment>主图地址</Comment>
       <DataType>varchar(512)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="272" parent="235" name="viewUrl">
+    <column id="273" parent="235" name="viewUrl">
       <Position>5</Position>
       <Comment>详情地址</Comment>
       <DataType>varchar(512)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="273" parent="235" name="category">
+    <column id="274" parent="235" name="category">
       <Position>6</Position>
       <Comment>一级类目</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="274" parent="235" name="tbkUrl">
+    <column id="275" parent="235" name="tbkUrl">
       <Position>7</Position>
       <Comment>淘宝客url</Comment>
       <DataType>varchar(512)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="275" parent="235" name="price">
+    <column id="276" parent="235" name="price">
       <Position>8</Position>
       <Comment>价格</Comment>
       <DataType>decimal(10,2 digit) unsigned|0s</DataType>
       <DefaultExpression>&apos;0.00&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="276" parent="235" name="monthSales">
+    <column id="277" parent="235" name="monthSales">
       <Position>9</Position>
       <Comment>月销量</Comment>
       <DataType>int(10)|0s</DataType>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="277" parent="235" name="incomeRatio">
+    <column id="278" parent="235" name="incomeRatio">
       <Position>10</Position>
       <Comment>收入比例</Comment>
       <DataType>decimal(10,2 digit) unsigned|0s</DataType>
       <DefaultExpression>&apos;0.00&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="278" parent="235" name="commision">
+    <column id="279" parent="235" name="commision">
       <Position>11</Position>
       <Comment>佣金</Comment>
       <DataType>decimal(8,2 digit) unsigned|0s</DataType>
       <DefaultExpression>&apos;0.00&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="279" parent="235" name="sellerName">
+    <column id="280" parent="235" name="sellerName">
       <Position>12</Position>
       <Comment>卖家名称</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="280" parent="235" name="sellerId">
+    <column id="281" parent="235" name="sellerId">
       <Position>13</Position>
       <Comment>卖家ID</Comment>
       <DataType>varchar(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="281" parent="235" name="shopName">
+    <column id="282" parent="235" name="shopName">
       <Position>14</Position>
       <Comment>店铺名称</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="282" parent="235" name="platform">
+    <column id="283" parent="235" name="platform">
       <Position>15</Position>
       <Comment>平台</Comment>
       <DataType>varchar(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="283" parent="235" name="couponId">
+    <column id="284" parent="235" name="couponId">
       <Position>16</Position>
       <Comment>优惠券ID</Comment>
       <DataType>varchar(64)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="284" parent="235" name="couponTotal">
+    <column id="285" parent="235" name="couponTotal">
       <Position>17</Position>
       <Comment>优惠券总量</Comment>
       <DataType>int(10) unsigned|0s</DataType>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="285" parent="235" name="couponSurplus">
+    <column id="286" parent="235" name="couponSurplus">
       <Position>18</Position>
       <Comment>优惠券剩余量</Comment>
       <DataType>int(10) unsigned|0s</DataType>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="286" parent="235" name="couponName">
+    <column id="287" parent="235" name="couponName">
       <Position>19</Position>
       <Comment>优惠券名称</Comment>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="287" parent="235" name="couponsStartTime">
+    <column id="288" parent="235" name="couponsStartTime">
       <Position>20</Position>
       <Comment>优惠券开始时间</Comment>
       <DataType>date|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="288" parent="235" name="couponsEndTime">
+    <column id="289" parent="235" name="couponsEndTime">
       <Position>21</Position>
       <Comment>优惠券结束时间</Comment>
       <DataType>date|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="289" parent="235" name="couponsUrl">
+    <column id="290" parent="235" name="couponsUrl">
       <Position>22</Position>
       <Comment>优惠券链接</Comment>
       <DataType>varchar(512)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="290" parent="235" name="couponsExtensionUrl">
+    <column id="291" parent="235" name="couponsExtensionUrl">
       <Position>23</Position>
       <Comment>商品优惠券推广链接</Comment>
       <DataType>varchar(512)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="291" parent="235" name="createTime">
+    <column id="292" parent="235" name="createTime">
       <Position>24</Position>
       <DataType>datetime|0s</DataType>
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="292" parent="235" name="updateTime">
+    <column id="293" parent="235" name="updateTime">
       <Position>25</Position>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="293" parent="235" name="categoryIds">
+    <column id="294" parent="235" name="categoryIds">
       <Position>26</Position>
       <Comment>分类ID集合:|1|,|2|,|3|</Comment>
       <DataType>varchar(64)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="294" parent="235" name="t_goods_id_index">
+    <index id="295" parent="235" name="t_goods_id_index">
       <ColNames>id</ColNames>
     </index>
-    <index id="295" parent="235" name="t_goods_categoryId_index">
+    <index id="296" parent="235" name="t_goods_categoryId_index">
       <ColNames>categoryIds</ColNames>
     </index>
-    <key id="296" parent="235" name="PRIMARY">
+    <key id="297" parent="235" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="297" parent="236" name="id">
+    <column id="298" parent="236" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="298" parent="236" name="goodsId">
+    <column id="299" parent="236" name="goodsId">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="299" parent="236" name="categoryId">
+    <column id="300" parent="236" name="categoryId">
       <Position>3</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="300" parent="236" name="createTime">
+    <column id="301" parent="236" name="createTime">
       <Position>4</Position>
       <DataType>datetime|0s</DataType>
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="301" parent="236" name="t_goods_category_goodsId_index">
+    <index id="302" parent="236" name="t_goods_category_goodsId_index">
       <ColNames>goodsId</ColNames>
     </index>
-    <index id="302" parent="236" name="t_goods_category_categoryId_index">
+    <index id="303" parent="236" name="t_goods_category_categoryId_index">
       <ColNames>categoryId</ColNames>
     </index>
-    <key id="303" parent="236" name="PRIMARY">
+    <key id="304" parent="236" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="304" parent="237" name="id">
+    <column id="305" parent="237" name="id">
       <Position>1</Position>
       <DataType>int(10)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="305" parent="237" name="userName">
+    <column id="306" parent="237" name="userName">
       <Position>2</Position>
       <DataType>varchar(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
       <Collation>latin1_swedish_ci</Collation>
     </column>
-    <column id="306" parent="237" name="passWord">
+    <column id="307" parent="237" name="passWord">
       <Position>3</Position>
       <DataType>varchar(50)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
       <Collation>latin1_swedish_ci</Collation>
     </column>
-    <column id="307" parent="237" name="email">
+    <column id="308" parent="237" name="email">
       <Position>4</Position>
       <DataType>varchar(100)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
       <Collation>latin1_swedish_ci</Collation>
     </column>
-    <column id="308" parent="237" name="createTime">
+    <column id="309" parent="237" name="createTime">
       <Position>5</Position>
       <DataType>datetime(6)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="309" parent="237" name="updateTime">
+    <column id="310" parent="237" name="updateTime">
       <Position>6</Position>
       <DataType>datetime(6)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
       <OnUpdate>CURRENT_TIMESTAMP(6)</OnUpdate>
     </column>
-    <index id="310" parent="237" name="t_user_idx">
+    <index id="311" parent="237" name="t_user_idx">
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="311" parent="237" name="PRIMARY">
+    <key id="312" parent="237" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="312" parent="237" name="t_user_idx">
+    <key id="313" parent="237" name="t_user_idx">
       <ColNames>id</ColNames>
       <UnderlyingIndexName>t_user_idx</UnderlyingIndexName>
     </key>

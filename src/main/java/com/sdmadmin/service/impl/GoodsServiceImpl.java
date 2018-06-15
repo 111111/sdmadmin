@@ -138,7 +138,7 @@ public class GoodsServiceImpl implements GoodsService {
                 Coupon coupon = row2Coupon(rowList);
 
 
-                Goods goods_temp = goodsMapper.selectByGoodId(goods.getGoodid());
+                Goods goods_temp = goodsMapper.selectByTbId(goods.getTbid());
                 if(goods_temp == null){
                     goods.setCreatetime(new Date());
                     goods.setUpdatetime(new Date());
@@ -223,7 +223,7 @@ public class GoodsServiceImpl implements GoodsService {
 //        logger.info("rowList:a1 = {},b2 = {},c3 = {},d4 = {},e5 = {},f6 = {},g7 = {},h8 = {},i9 = {},j10 = {},k11 = {},l12 = {},m13 = {},n14 = {},o15 = {},p16 = {},,q17 = {},r18 = {},s19 = {},t20 = {},u21 = {},v22 = {}"
 //                , a1, b2, c3, d4, e5, f6, g7, h8, i9, j10,k11, l12, m13, n14, o15, p16, q17, r18, s19, t20, u21, v22);
         Goods goods = new Goods();
-        goods.setGoodid(a1);
+        goods.setTbid(a1);
         goods.setGoodname(b2);
         goods.setMainpicurl(c3);
         goods.setViewurl(d4);
