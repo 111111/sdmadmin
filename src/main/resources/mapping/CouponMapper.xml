@@ -33,7 +33,7 @@
     select
     <include refid="Base_Column_List" />
     from t_coupon
-    where goodsid = #{goodsid,jdbcType=VARCHAR}
+    where goodsid = #{goodsid,jdbcType=BIGINT}
     and couponId = #{couponid,jdbcType=VARCHAR}
   </select>
 
@@ -44,11 +44,19 @@
     where couponId = #{couponid,jdbcType=VARCHAR}
   </select>
 
-  <select id="selectByGoodsId" resultMap="BaseResultMap" parameterType="java.lang.String" >
+  <select id="selectByGoodsId" resultMap="BaseResultMap" >
     select
     <include refid="Base_Column_List" />
     from t_coupon
-    where goodsid = #{goodsid,jdbcType=VARCHAR}
+    where goodsid = #{goodsid,jdbcType=BIGINT}
+  </select>
+
+  <select id="selectOneByGoodsId" resultMap="BaseResultMap" >
+    select
+    <include refid="Base_Column_List" />
+    from t_coupon
+    where goodsid = #{goodsid,jdbcType=BIGINT}
+    order by preferentialAmount desc limit 1
   </select>
 
   <select id="selectByTbId" resultMap="BaseResultMap" parameterType="java.lang.String" >

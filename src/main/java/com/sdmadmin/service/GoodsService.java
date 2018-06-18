@@ -16,9 +16,13 @@ public interface GoodsService {
 
     List<Goods> getGoodPage(String searchName, int pi, int ps);
 
+    void updateVoucherPrice();
+
     void updateGoodsCategory();
 
     void importExcel(String filePath, String fileName);
 
     void importExcel(File excelFile);
+
+    void import618Excel(File excelFile);
 }

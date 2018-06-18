@@ -1125,7 +1125,7 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="270" parent="235" name="goodId">
+    <column id="270" parent="235" name="tbId">
       <Position>2</Position>
       <Comment>商品id</Comment>
       <DataType>varchar(20)|0s</DataType>
@@ -1282,99 +1282,112 @@
       <DataType>varchar(64)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="295" parent="235" name="t_goods_id_index">
+    <column id="295" parent="235" name="voucherPrice">
+      <Position>27</Position>
+      <Comment>券后价</Comment>
+      <DataType>decimal(10,2 digit) unsigned|0s</DataType>
+      <DefaultExpression>&apos;0.00&apos;</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="296" parent="235" name="remarks">
+      <Position>28</Position>
+      <Comment>备注</Comment>
+      <DataType>varchar(64)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="297" parent="235" name="t_goods_id_index">
       <ColNames>id</ColNames>
     </index>
-    <index id="296" parent="235" name="t_goods_categoryId_index">
+    <index id="298" parent="235" name="t_goods_categoryId_index">
       <ColNames>categoryIds</ColNames>
     </index>
-    <key id="297" parent="235" name="PRIMARY">
+    <key id="299" parent="235" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="298" parent="236" name="id">
+    <column id="300" parent="236" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="299" parent="236" name="goodsId">
+    <column id="301" parent="236" name="goodsId">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="300" parent="236" name="categoryId">
+    <column id="302" parent="236" name="categoryId">
       <Position>3</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="301" parent="236" name="createTime">
+    <column id="303" parent="236" name="createTime">
       <Position>4</Position>
       <DataType>datetime|0s</DataType>
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="302" parent="236" name="t_goods_category_goodsId_index">
+    <index id="304" parent="236" name="t_goods_category_goodsId_index">
       <ColNames>goodsId</ColNames>
     </index>
-    <index id="303" parent="236" name="t_goods_category_categoryId_index">
+    <index id="305" parent="236" name="t_goods_category_categoryId_index">
       <ColNames>categoryId</ColNames>
     </index>
-    <key id="304" parent="236" name="PRIMARY">
+    <key id="306" parent="236" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="305" parent="237" name="id">
+    <column id="307" parent="237" name="id">
       <Position>1</Position>
       <DataType>int(10)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="306" parent="237" name="userName">
+    <column id="308" parent="237" name="userName">
       <Position>2</Position>
       <DataType>varchar(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
       <Collation>latin1_swedish_ci</Collation>
     </column>
-    <column id="307" parent="237" name="passWord">
+    <column id="309" parent="237" name="passWord">
       <Position>3</Position>
       <DataType>varchar(50)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
       <Collation>latin1_swedish_ci</Collation>
     </column>
-    <column id="308" parent="237" name="email">
+    <column id="310" parent="237" name="email">
       <Position>4</Position>
       <DataType>varchar(100)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
       <Collation>latin1_swedish_ci</Collation>
     </column>
-    <column id="309" parent="237" name="createTime">
+    <column id="311" parent="237" name="createTime">
       <Position>5</Position>
       <DataType>datetime(6)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="310" parent="237" name="updateTime">
+    <column id="312" parent="237" name="updateTime">
       <Position>6</Position>
       <DataType>datetime(6)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
       <OnUpdate>CURRENT_TIMESTAMP(6)</OnUpdate>
     </column>
-    <index id="311" parent="237" name="t_user_idx">
+    <index id="313" parent="237" name="t_user_idx">
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="312" parent="237" name="PRIMARY">
+    <key id="314" parent="237" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="313" parent="237" name="t_user_idx">
+    <key id="315" parent="237" name="t_user_idx">
       <ColNames>id</ColNames>
       <UnderlyingIndexName>t_user_idx</UnderlyingIndexName>
     </key>

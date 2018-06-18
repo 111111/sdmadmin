@@ -92,6 +92,14 @@ public class GoodsController {
         return "success";
     }
 
+    @RequestMapping("/updateVoucherPrice")
+    @ResponseBody
+    public String updateVoucherPrice(){
+        goodsService.updateVoucherPrice();
+        return "success";
+    }
+
+
     @RequestMapping("/importgoods")
     public String importGoods(@RequestParam("uploadFile") MultipartFile file, RedirectAttributes redirectModel){
 
@@ -131,6 +139,30 @@ public class GoodsController {
                 logger.info("filePath：{}" , srcFile.getAbsolutePath());
 
                 goodsService.importExcel(srcFile);
+                return "后台已执行导入.";
+            }else{
+                return "file is null";
+            }
+
+        }else{
+            return "fileName is null";
+        }
+
+    }
+
+    @RequestMapping("/importgoodsfile618")
+    @ResponseBody
+    public String importGoodsFile618(String fileName, RedirectAttributes redirectModel){
+
+        logger.info("fileName：{}" + fileName);
+        if(fileName != null && !"".equals(fileName)){
+            String filedir = sysConfig.getFileDir();
+
+            File srcFile = new File(filedir + fileName);
+            if(srcFile.exists()){
+                logger.info("filePath：{}" , srcFile.getAbsolutePath());
+
+                goodsService.import618Excel(srcFile);
                 return "后台已执行导入.";
             }else{
                 return "file is null";

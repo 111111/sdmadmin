@@ -69,6 +69,7 @@
                                           <input type='hidden'  th:value="${pi}" id='pi' name="pi"  />
                                           <button type="submit" class="btn btn-theme">查  询</button>
                                           <button type="button" onclick="updateCategory();" class="btn btn-theme">更新分类</button>
+                                          <button type="button" onclick="updateVoucherPrice();" class="btn btn-theme">更新价格</button>
                                       </div>
 
                                   </form>
@@ -80,7 +81,7 @@
                                   <th>淘宝ID</th>
                                   <th>商品名称</th>
                                   <th>分类</th>
-                                  <th>价格（佣金）(比率%)</th>
+                                  <th>价格(券后)(佣金)(比率%)</th>
                                   <th>链接</th>
                                   <th>优惠券</th>
                               </tr>
@@ -92,6 +93,7 @@
                                   <td th:text="${goods.category}">分类</td>
                                   <td>
                                       <th:block th:text="${goods.price}"></th:block>
+                                      (<th:block th:text="${goods.voucherPrice}"></th:block>)
                                       (<th:block th:text="${goods.commision}"></th:block>)
                                       (<th:block th:text="${goods.incomeratio}"></th:block>%)
                                   </td>
@@ -177,6 +179,13 @@
                 alert(data);
             })
         }
+
+      function updateVoucherPrice() {
+          var p = {};
+          $.get("/goods/updateVoucherPrice", p, function (data) {
+              alert(data);
+          })
+      }
 	</script>
 
   </body>

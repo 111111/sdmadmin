@@ -58,6 +58,10 @@ public class Goods {
 
     private Date updatetime;
 
+    private BigDecimal voucherPrice;
+
+    private String remarks;
+
     private List<Coupon> couponList;
 
     public Long getId() {
@@ -268,6 +272,22 @@ public class Goods {
         this.updatetime = updatetime;
     }
 
+    public BigDecimal getVoucherPrice() {
+        return voucherPrice;
+    }
+
+    public void setVoucherPrice(BigDecimal voucherPrice) {
+        this.voucherPrice = voucherPrice;
+    }
+
+    public String getRemarks() {
+        return remarks;
+    }
+
+    public void setRemarks(String remarks) {
+        this.remarks = remarks;
+    }
+
     public List<Coupon> getCouponList() {
         return couponList;
     }
@@ -312,6 +332,8 @@ public class Goods {
                 ", couponsextensionurl='" + couponsextensionurl + '\'' +
                 ", createtime=" + createtime +
                 ", updatetime=" + updatetime +
+                ", voucherPrice=" + voucherPrice +
+                ", remarks='" + remarks + '\'' +
                 ", couponList=" + couponList +
                 '}';
     }

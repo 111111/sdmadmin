@@ -19,7 +19,9 @@ public interface CouponMapper {
 
     Coupon selectByCouponId(String couponId);
 
-    List<Coupon> selectByGoodsId(String goodsId);
+    List<Coupon> selectByGoodsId(Long goodsId);
+
+    Coupon selectOneByGoodsId(Long goodsId);
 
     List<Coupon> selectByTbId(String tbIs);
 

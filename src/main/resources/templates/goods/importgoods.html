@@ -67,7 +67,9 @@
                                           <option th:each="fname,namestus : ${fileNameList}" th:value="${fname}" th:text="${fname}">111</option>
                                       </select>
                                       <input type="submit" th:url="@{/goods/importgoodsfile}" onclick="improtFile(this);" class="btn btn-theme" value="导入"/>
+                                  <input type="submit" th:url="@{/goods/importgoodsfile618}" onclick="improtFile(this);" class="btn btn-theme" value="618商品导入"/>
                               </h4>
+                              
                               <h4 th:text="${msg}"></h4>
                           </table>
                       </div><! --/content-panel -->

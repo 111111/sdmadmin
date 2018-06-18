@@ -85,11 +85,16 @@ public class StringUtils {
 //        String p = str0.substring(0, str0.indexOf("（"));
 //        System.out.println("p = " + p);
         //IP,datetime,”referrer”,”url”,userid, “user_agent”
-        String str1 = "满103元减5元" ;
-        String fullAmountStr = str1.substring(str1.indexOf("满") + 1, str1.indexOf("元"));
-        System.out.println("fullAmountStr = " + fullAmountStr);
-        String preferentialAmount = str1.substring(str1.indexOf("减") + 1, str1.lastIndexOf("元"));
-        System.out.println("preferentialAmount = " + preferentialAmount);
+//        String str1 = "满103元减5元" ;
+//        String fullAmountStr = str1.substring(str1.indexOf("满") + 1, str1.indexOf("元"));
+//        System.out.println("fullAmountStr = " + fullAmountStr);
+//        String preferentialAmount = str1.substring(str1.indexOf("减") + 1, str1.lastIndexOf("元"));
+//        System.out.println("preferentialAmount = " + preferentialAmount);
+
+        BigDecimal price = new BigDecimal(100);
+        Integer preferentialAmount = 303;
+        BigDecimal b = price.subtract(new BigDecimal(preferentialAmount));
+        System.out.println("b = " + b);
 
     }
 

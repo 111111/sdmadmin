@@ -28,24 +28,19 @@
     <result column="couponsExtensionUrl" property="couponsextensionurl" jdbcType="VARCHAR" />
     <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
     <result column="updateTime" property="updatetime" jdbcType="TIMESTAMP" />
+    <result column="voucherPrice" property="voucherPrice" jdbcType="DECIMAL" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+
     <collection property="couponList" column="{goodsid=id}" javaType="ArrayList"
-                ofType="com.sdmadmin.entity.Coupon" select="selectcouponListByGoodsId"/>
+                ofType="com.sdmadmin.entity.Coupon" select="com.sdmadmin.dao.CouponMapper.selectByGoodsId"/>
   </resultMap>
   <sql id="Base_Column_List" >
     id, tbId, goodName, mainPicUrl, viewUrl, category, categoryIds, tbkUrl, price, monthSales, incomeRatio,
     commision, sellerName, sellerId, shopName, platform, couponId, couponTotal, couponSurplus, 
     couponName, couponsStartTime, couponsEndTime, couponsUrl, couponsExtensionUrl, createTime,
-    updateTime
+    updateTime, voucherPrice, remarks
   </sql>
 
-  <select id="selectcouponListByGoodsId" parameterType="java.util.Map" resultType="com.sdmadmin.entity.Coupon" >
-    select
-    id, goodsid, tbId, couponId, couponTotal, couponSurplus, couponName, couponsStartTime,
-    couponsEndTime, couponsUrl, couponsExtensionUrl, createTime, updateTime, fullAmount, preferentialAmount
-    from t_coupon
-    where goodsid = #{goodsid,jdbcType=INTEGER}
-
-  </select>
   <select id="selectList" resultMap="BaseResultMap" parameterType="com.sdmadmin.entity.Goods" >
     select
     <include refid="Base_Column_List" />
@@ -98,7 +93,7 @@
       couponId, couponTotal, couponSurplus, 
       couponName, couponsStartTime, couponsEndTime, 
       couponsUrl, couponsExtensionUrl, createTime,
-      updateTime)
+      updateTime, voucherPrice, remarks)
     values (#{tbid,jdbcType=VARCHAR}, #{goodname,jdbcType=VARCHAR},
       #{mainpicurl,jdbcType=VARCHAR}, #{viewurl,jdbcType=VARCHAR}, #{category,jdbcType=VARCHAR}, #{categoryIds,jdbcType=VARCHAR},
       #{tbkurl,jdbcType=VARCHAR}, #{price,jdbcType=DECIMAL}, #{monthsales,jdbcType=INTEGER}, 
@@ -107,7 +102,7 @@
       #{couponid,jdbcType=VARCHAR}, #{coupontotal,jdbcType=INTEGER}, #{couponsurplus,jdbcType=INTEGER}, 
       #{couponname,jdbcType=VARCHAR}, #{couponsstarttime,jdbcType=DATE}, #{couponsendtime,jdbcType=DATE}, 
       #{couponsurl,jdbcType=VARCHAR}, #{couponsextensionurl,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, 
-      #{updatetime,jdbcType=TIMESTAMP})
+      #{updatetime,jdbcType=TIMESTAMP}, #{voucherPrice,jdbcType=DECIMAL}, #{remarks,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.sdmadmin.entity.Goods" useGeneratedKeys="true" keyProperty="id">
     insert into t_goods
@@ -188,6 +183,13 @@
       <if test="updatetime != null" >
         updateTime,
       </if>
+      <if test="voucherPrice != null" >
+        voucherPrice,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
 
@@ -262,6 +264,12 @@
       </if>
       <if test="updatetime != null" >
         #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="voucherPrice != null" >
+        #{voucherPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -343,6 +351,12 @@
       <if test="updatetime != null" >
         updateTime = #{updatetime,jdbcType=TIMESTAMP},
       </if>
+      <if test="voucherPrice != null" >
+        voucherPrice = #{voucherPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
@@ -372,7 +386,9 @@
       couponsUrl = #{couponsurl,jdbcType=VARCHAR},
       couponsExtensionUrl = #{couponsextensionurl,jdbcType=VARCHAR},
       createTime = #{createtime,jdbcType=TIMESTAMP},
-      updateTime = #{updatetime,jdbcType=TIMESTAMP}
+      updateTime = #{updatetime,jdbcType=TIMESTAMP},
+      voucherPrice = #{voucherPrice,jdbcType=DECIMAL},
+      remarks = #{remarks,jdbcType=VARCHAR}
     where id = #{id,jdbcType=BIGINT}
   </update>
 </mapper>
