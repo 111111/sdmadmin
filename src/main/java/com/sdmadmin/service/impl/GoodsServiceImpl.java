@@ -182,7 +182,7 @@ public class GoodsServiceImpl implements GoodsService {
                 }else{
                     goods.setId(goods_temp.getId());
                     goods.setUpdatetime(new Date());
-                    goodsMapper.updateByPrimaryKeySelective(goods);
+                    goodsMapper.updateByPrimaryKey(goods);
                 }
 
 
@@ -301,7 +301,7 @@ public class GoodsServiceImpl implements GoodsService {
                 }else{
                     goods.setId(goods_temp.getId());
                     goods.setUpdatetime(new Date());
-                    goodsMapper.updateByPrimaryKeySelective(goods);
+                    goodsMapper.updateByPrimaryKey(goods);
                 }
 
 
@@ -335,7 +335,7 @@ public class GoodsServiceImpl implements GoodsService {
                     coupon.setId(coupon_temp.getId());
                     coupon.setGoodsid(goods.getId());
                     coupon.setUpdatetime(new Date());
-                    couponMapper.updateByPrimaryKeySelective(coupon);
+                    couponMapper.updateByPrimaryKey(coupon);
                 }
 
                 BigDecimal price = goods.getPrice();
